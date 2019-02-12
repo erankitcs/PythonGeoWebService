@@ -1,0 +1,86 @@
+.background-image {
+    background-image: url('../images/bg-main.jpg') !important;
+    background-size: cover !important;
+    opacity: 0.9;
+    background-position: center ;
+}
+.nav_header {
+  background-image: url('../images/header_bg_1.jpg') !important;
+  background-size: cover !important;
+  opacity: 0.8;
+  padding-top:80px;
+  background-position: center ;
+}
+
+.abouttext {
+ font-family: 'Open Sans', sans-serif;
+ color: #fff;
+ font-size:17px;
+ line-height: 1.5;
+ margin-top: 10px;
+}
+
+.bg-div {
+ margin-left: 10% !important;
+ margin-right: 10% !important;
+
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.labelradius{
+  border-radius: 5px !important;
+}
+.orangecol {
+  color: #f2711c !important;
+}
+.text-centre {
+  text-align: center;
+  text-decoration: underline;
+}
+.list-centre {
+  text-align: center;
+}
+.cardwidth{
+  width: 220px !important;
+}
+.rowtopmargin {
+  margin-top: 10px;
+}
+.bg-container {
+ padding-top:1%;
+ margin-left: 8%;
+ margin-right: 8%;
+ opacity: 1;
+}
+.marginb {
+  margin-bottom: 15px !important;
+}
+
+.address {
+  background-color: #EF4123 !important;
+  color: white !important;
+}
+.latitude {
+  background-color: teal !important;
+  color: white !important;
+}
+.longitude {
+  background-color: teal !important;
+  color: white !important;
+}
+div.step.address:after {
+  background-color: #EF4123 !important;
+}
+div.step.latitude:after {
+  display: none !important;
+}
+.mapoverflow {
+ overflow: scroll !important;
+}

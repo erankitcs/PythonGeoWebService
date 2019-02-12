@@ -1,0 +1,14 @@
+.background-image {
+    background-image: url('../images/bg-main.jpg') !important;
+    background-size: cover !important;
+    opacity: 1.0;
+    background-position: center ;
+}
+
+.description {
+  font-size: 1.1em !important;
+}
+
+.ribbonfont {
+  font-size: 1.4em !important;
+}

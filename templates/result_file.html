@@ -1,0 +1,92 @@
+{% extends "layout.html"%}
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/result.css')}}">
+<link rel='stylesheet prefetch' href='https://jeffry.in/old-jeffry-in/css/jeffry.in.css'>
+<link rel='stylesheet prefetch' href='https://jeffry.in/old-jeffry-in/css/jeffry.in.slider.css'>
+<style>
+.slider-arrow--right {
+  bottom: 60%;
+  right: 10px;
+}
+
+.slider-arrow--left {
+  bottom: 60%;
+  left: 10px;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 60px;
+  display: none;
+}
+</style>
+
+<div class="row bg-container">
+  <div class="column">
+    <div class="ui raised segment">
+      <form action="{{url_for('home')}}">
+      <a class="ui teal ribbon label marginb ribbonfont"><i class="play icon"></i>Search Result</a>
+
+      <a  href={{url_for('download')}} target="blank"><button class="ui right floated green button">Download</button></a>
+
+      <button class="ui teal submit right floated button" type="submit">Home</button>
+      </form>
+  <!-- Adding Slider -->
+
+  <div class="slider slider1" >
+  <div class="slides">
+  {% for key,value in data.iterrows() %}
+    <div class="slide-item">
+
+      <div class="ui three top attached steps">
+        <div class="step address">
+          <i class="location arrow icon"></i>
+          <div class="content1">
+            <div class="title">{{value['Address']|safe}}</div>
+            <div class="description">Entered Address</div>
+          </div>
+        </div>
+        <div class="step latitude">
+          <i class="map marker mini icon"></i>
+          <div class="content1">
+            <div class="title">{{value['Latitude']|safe}}</div>
+            <div class="description">Latitude</div>
+          </div>
+        </div>
+        <div class="step longitude">
+          <i class="map marker mini icon"></i>
+          <div class="content1">
+            <div class="title">{{value['Longitude']|safe}}</div>
+            <div class="description">Longitude</div>
+          </div>
+        </div>
+      </div>
+
+     </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+<!--Slider end --->
+      <div class="ui attached segment mapoverflow">
+        {{map_html|safe}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.glide/1.0.6/jquery.glide.min.js'></script>
+
+    <script>
+    $('.slider').glide({
+ autoplay: false,
+ arrowsWrapperClass: 'slider-arrows',
+ arrowRightText: '',
+ arrowLeftText: ''
+});
+    </script>
+
+{% endblock %}

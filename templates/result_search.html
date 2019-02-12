@@ -1,0 +1,44 @@
+{% extends "layout.html"%}
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/result.css')}}">
+<div class="row bg-container">
+  <div class="column">
+    <div class="ui raised segment">
+      <form action="{{url_for('home')}}" >
+      <a class="ui teal ribbon label marginb ribbonfont"><i class="play icon"></i>Search Result</a>
+
+      <button class="ui teal submit right floated button" type="submit">Home</button>
+      </form>
+      <div class="ui three top attached steps">
+        <div class="step address">
+          <i class="location arrow icon"></i>
+          <div class="content">
+            <div class="title">{{adr|safe}}</div>
+            <div class="description">Entered Address</div>
+          </div>
+        </div>
+        <div class="step latitude">
+          <i class="map marker mini icon"></i>
+          <div class="content">
+            <div class="title">{{lat|safe}}</div>
+            <div class="description">Latitude</div>
+          </div>
+        </div>
+        <div class="step longitude">
+          <i class="map marker mini icon"></i>
+          <div class="content">
+            <div class="title">{{long|safe}}</div>
+            <div class="description">Longitude</div>
+          </div>
+        </div>
+      </div>
+      <div class="ui attached segment mapoverflow">
+        {{map_html|safe}}
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+{% endblock %}

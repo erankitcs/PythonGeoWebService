@@ -1,0 +1,133 @@
+{% extends "layout.html"%}
+{% block content %}
+<!---Notification-->
+<div class="ui grid ">
+  <div class="four column row">
+
+    <div class="column">
+      <!---User Card -->
+      <div class="ui cards">
+        <div class="card teal cardwidth" id="usercard">
+          <div class="content">
+            <!--<img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg"> -->
+            <i class="user icon orange right floated big ui"></i>
+            <div class="header orangecol">
+              {{username | safe}}
+            </div>
+            <div class="meta">
+              User
+            </div>
+            <div class="description">
+              Application requested permission to access your location details
+            </div>
+          </div>
+          <form action='/storeUser/' method="post" >
+          <input hidden type="text" id="username" name="username" value="{{username | safe}}">
+          <div class="extra content">
+            <div class="ui two buttons">
+              <div class="ui basic green button" id="btn-approve">Approve</div>
+              <div class="ui basic red button" id="btn-decline">Decline</div>
+              <p style="display: none;" id="thankstxt">Thanks !!!</p>
+            </div>
+          </div>
+        </form>
+        </div>
+
+      </div>
+      <!---User Card end -->
+      </div>
+
+        <div class="column">
+        </div>
+        <div class="column">
+        </div>
+        <div class="column">
+            <div class="ui hidden success message">
+            <i class="close icon"></i>
+              <div class="header">
+                  Thanks a lot {{username | safe}}
+              </div>
+              <p>Your Name has been stored into our visitor repository.</p>
+            </div>
+          </div>
+
+
+
+
+      </div>
+    </div>
+
+<!--style="padding-top:15%"-->
+<div class="row rowtopmargin" >
+
+<div class="bg-div ui column raised segment" id="searchcol">
+<!--
+<div class=" ui form">
+  <div class="field">
+
+  <div class="ui teal icon input">
+  <input type="text" placeholder="Type your address here..">
+
+  <button class="ui teal right labeled icon button">
+    <i class="search link icon"></i>
+     Search</button>
+</div>
+  </div>
+</div>
+-->
+
+<div class="ui large disabled indeterminate text loader" id="ui-loader">Processing file...</div>
+
+
+<div class="ui center aligned basic segment">
+  <form action="{{url_for('address')}}" method="POST" >
+  <div class="ui left icon huge action input">
+    <i class="search icon"></i>
+    <input type="text" placeholder="Enter your address here..." spellcheck="false" name="address">
+    <button class="ui teal huge submit right floated button" type="submit">Search</button>
+  </div>
+  </form>
+  <div class="ui horizontal divider">
+    Or
+  </div>
+  <form action="{{url_for('addresses')}}" method="POST" enctype="multipart/form-data" id="fileinputform" >
+  <div class="ui left icon action input">
+    <input type="file" onChange="loadFile()" class="inputfile" id="fileinput" name="fileinput" />
+    <label for="fileinput" class="ui huge green right floated button labelradius"  id="loadlabel">
+    <i class="ui upload icon"></i>
+    Upload File
+  </label>
+</div>
+</form>
+</div>
+<div class="row center aligned">
+<div class="ui column center aligned">
+   <h3><i class="thumbtack red icon"></i> Instructions </h3>
+</div>
+   <div class="ui middle aligned divided list">
+  <div class="item">
+    <i class="map marker icon"></i>
+    <div class="content ">
+      <a class="header">An Address</a>
+      <div class="description">Please type your address in search input and click on Search button.</div>
+      <div class="description">You will be redirected to Map with location marker.</div>
+    </div>
+  </div>
+  <div class="item">
+    <i class="map marker icon"></i>
+    <div class="content">
+      <a class="header">List of Addresses</a>
+      <div class="description">Please click on Upload File button to load your CSV file having a column named Address/address.</div>
+      <div class="description">You will be redirected to Map with location marker.</div>
+      <div class="description">A link will be available to dowload your CSV file again with Coordinates.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}
